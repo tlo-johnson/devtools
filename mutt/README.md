@@ -17,4 +17,4 @@ Instructions from [gpg password management](https://wiki.archlinux.org/index.php
 The following commands can be useful once running
 - Sync all mailboxes `mbsync -a`
 - Sync all mailboxes from mutt using `Tab`. This is set up as part of the mutt key bindings in `./bindings`
-- Send an email `echo Test | msmtp -a toluwani.adesegha@gmail.com toluwani.adesegha@gmail.com`
+- Send an email `echo Test | msmtp -a fake@email.com fake@email.com`
