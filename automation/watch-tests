@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
 if [[ $(pwd) =~ cm-react-service ]]; then
-  yarn test:watch
+  yarn jest:watch
 fi
