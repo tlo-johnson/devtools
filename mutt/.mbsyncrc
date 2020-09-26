@@ -1,0 +1,28 @@
+#######################################
+# toluwani.adesegha@gmail.com mailbox #
+#######################################
+IMAPAccount mailbox
+Host imap.gmail.com
+Port 993
+User toluwani.adesegha@gmail.com
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/gmail-credentials.gpg"
+SSLType IMAPS
+CertificateFile ~/devtools/mutt/certificates
+AuthMech PLAIN
+
+# Remote storage
+IMAPStore mailbox-remote
+Account mailbox
+
+# Local storage
+MaildirStore mailbox-local
+Path ~/mail/toluwani.adesegha@gmail.com/
+Inbox ~/mail/toluwani.adesegha@gmail.com/inbox
+Flatten .
+
+Channel mailbox
+Master :mailbox-remote:
+Slave :mailbox-local:
+Patterns *
+CopyArrivalDate yes
+Create Slave
