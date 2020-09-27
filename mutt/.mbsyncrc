@@ -1,28 +1,58 @@
 #######################################
 # toluwani.adesegha@gmail.com mailbox #
 #######################################
-IMAPAccount mailbox
+IMAPAccount mailbox-gmail
 Host imap.gmail.com
 Port 993
 User toluwani.adesegha@gmail.com
-PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/gmail-credentials.gpg"
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/toluwani.adesegha@gmail.com.gpg"
 SSLType IMAPS
-CertificateFile ~/devtools/mutt/certificates
+CertificateFile ~/devtools/mutt/certificates/imap.gmail.com.pem
 AuthMech PLAIN
 
 # Remote storage
-IMAPStore mailbox-remote
-Account mailbox
+IMAPStore mailbox-gmail-remote
+Account mailbox-gmail
 
 # Local storage
-MaildirStore mailbox-local
+MaildirStore mailbox-gmail-local
 Path ~/mail/toluwani.adesegha@gmail.com/
 Inbox ~/mail/toluwani.adesegha@gmail.com/inbox
 Flatten .
 
-Channel mailbox
-Master :mailbox-remote:
-Slave :mailbox-local:
+Channel mailbox-gmail
+Master :mailbox-gmail-remote:
+Slave :mailbox-gmail-local:
+Patterns *
+CopyArrivalDate yes
+Create Slave
+
+
+#######################################
+# tolu@adesegha.ca mailbox #
+#######################################
+IMAPAccount mailbox-exchange
+Host outlook.office365.com
+Port 993
+User tolu@adesegha.ca
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/tolu@adesegha.ca.gpg"
+SSLType IMAPS
+CertificateFile ~/devtools/mutt/certificates/outlook.office365.com.pem
+AuthMech PLAIN
+
+# Remote storage
+IMAPStore mailbox-exchange-remote
+Account mailbox-exchange
+
+# Local storage
+MaildirStore mailbox-exchange-local
+Path ~/mail/tolu@adesegha.ca
+Inbox ~/mail/tolu@adesegha.ca/inbox
+Flatten .
+
+Channel mailbox-exchange
+Master :mailbox-exchange-remote:
+Slave :mailbox-exchange-local:
 Patterns *
 CopyArrivalDate yes
 Create Slave

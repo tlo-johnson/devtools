@@ -2,7 +2,11 @@
 Based off of [a-modern-mutt-setup](https://webgefrickel.de/blog/a-modern-mutt-setup) and [a-modern-mutt-setup-part-two](https://webgefrickel.de/blog/a-modern-mutt-setup-part-two).
 
 ## Deviations:
-- I'm using gpg to secure credentials. See [password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) on the msmtp page.
+I'm using gpg to secure credentials. See [password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) on the msmtp page.
+#### TLDR
+- `gpg --default-recipient-self -e <name of file containing password>`
+- Copy `<name of file containing password>.gpg` to credentials location (see [One-time setup](https://github.com/tlo-johnson/devtools/tree/master/mutt#one-time-setup))
+- Be sure to delete the file containing your plaintext password. I'm sure there's a way to do this without actually saving the file - just need to do some exploration at some later date.
 
 ## Required tooling
 - mbsync `brew install isync`. The package is called isync but the binary is called mbsync
@@ -31,3 +35,6 @@ The following commands can be useful once running
 - Sync all mailboxes `mbsync -a`
 - Sync all mailboxes from mutt using `O`. This is set up as part of the mutt key bindings in `./bindings`
 - Send an email `echo Test | msmtp -a fake@email.com fake@email.com`
+
+## Useful scripts
+- `./get-cert.sh <some.imap.server> <port> <cert.folder>`
