@@ -1,5 +1,5 @@
 function! s:Cm()
-  cd ~/dev/central-market/cm-local-dev-environment/react-service/cm-react-service
+  cd ~/dev/central-market/cm-react-service
 endfunction
 
 function! s:CmRunWordpress()

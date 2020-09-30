@@ -2,4 +2,7 @@
 
 if [[ $(pwd) =~ cm-react-service ]]; then
   yarn test:dev
+  exit
 fi
+
+yarn test
