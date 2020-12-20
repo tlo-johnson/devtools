@@ -1,7 +1,12 @@
 #! /usr/bin/env bash
 
-if [[ $(pwd) =~ cm-react-service ]]; then
+if [[ $(pwd) =~ react-service ]]; then
   yarn jest:watch
+  exit
+fi
+
+if [[ $(pwd) =~ joe-vs ]]; then
+  yarn test:watch
   exit
 fi
 

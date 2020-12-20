@@ -4,7 +4,7 @@ endfunction
 
 function! s:StokePortal()
   cd ~/dev/stoke/portal
-  call RunInTerminal('react-scripts', 'yarn start')
+  call RunInTerminal('dev-server', 'yarn start')
 endfunction
 
 command! StokeApi call s:StokeApi()

@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-if [[ $(pwd) =~ cm-react-service ]]; then
+if [[ $(pwd) =~ react-service ]]; then
   yarn test:dev
   exit
 fi

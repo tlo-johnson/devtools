@@ -1,5 +1,0 @@
-#! /usr/bin/env bash
-
-if [[ $(pwd) =~ cm-react-service ]]; then
-  yarn start
-fi

@@ -1,9 +1,9 @@
 function! s:Cm()
-  cd ~/dev/central-market/cm-react-service
+  cd ~/dev/central-market/react-service
 endfunction
 
 function! s:CmRunWordpress()
-  call RunInTerminal('wordpress-server', "cd ~/dev/central-market/cm-local-dev-environment && dcu")
+  call RunInTerminal('wordpress-server', "cd ~/dev/central-market/wordpress && dcu")
 endfunction
 
 function! s:CmRunServer()
@@ -13,6 +13,10 @@ endfunction
 
 function! s:CmRunClient()
   call RunInTerminal('react-service-local', 'yarn start')
+endfunction
+
+function! s:CmRunStorybook()
+  call RunInTerminal('storybook', 'yarn storybook')
 endfunction
 
 function! s:CmRunSite()
@@ -26,4 +30,10 @@ command! CmRunSite call s:CmRunSite()
 command! CmRunWordpress call s:CmRunWordpress()
 command! CmRunServer call s:CmRunServer()
 command! CmRunClient call s:CmRunClient()
+command! CmRunStorybook call s:CmRunStorybook()
 command! CmTest call RunInTerminal('jest-tests', 'yarn jest:watch')
+
+
+" Joe V's
+command! Jv cd ~/dev/central-market/joe-vs
+command! JvDev call RunInTerminal('dev-server', 'cd ~/dev/central-market/joe-vs && yarn dev') | call RunInTerminal('redis-server', 'cd ~/dev/central-market/joe-vs && docker-command && yarn dev:redis')

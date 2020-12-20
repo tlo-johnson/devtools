@@ -1,6 +1,5 @@
 function! s:UloServer()
   cd ~/dev/ulomobilespa/server
-  call RunInTerminal('mongodb', 'yarn db')
   call RunInTerminal('mongodb-client', 'mongo')
   call RunInTerminal('node-dev', 'yarn start')
 endfunction

@@ -1,7 +1,7 @@
 #######################################
 # toluwani.adesegha@gmail.com mailbox #
 #######################################
-IMAPAccount mailbox-gmail
+IMAPAccount gmail
 Host imap.gmail.com
 Port 993
 User toluwani.adesegha@gmail.com
@@ -11,18 +11,18 @@ CertificateFile ~/devtools/mutt/certificates/imap.gmail.com.pem
 AuthMech PLAIN
 
 # Remote storage
-IMAPStore mailbox-gmail-remote
-Account mailbox-gmail
+IMAPStore gmail-remote
+Account gmail
 
 # Local storage
-MaildirStore mailbox-gmail-local
+MaildirStore gmail-local
 Path ~/mail/toluwani.adesegha@gmail.com/
 Inbox ~/mail/toluwani.adesegha@gmail.com/inbox
 Flatten .
 
-Channel mailbox-gmail
-Master :mailbox-gmail-remote:
-Slave :mailbox-gmail-local:
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
 Patterns *
 CopyArrivalDate yes
 Create Slave
@@ -31,28 +31,29 @@ Create Slave
 #######################################
 # tolu@adesegha.ca mailbox #
 #######################################
-IMAPAccount mailbox-exchange
+IMAPAccount exchange
 Host outlook.office365.com
 Port 993
 User tolu@adesegha.ca
 PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/tolu@adesegha.ca.gpg"
 SSLType IMAPS
+SSLVersion TLSv1.2
 CertificateFile ~/devtools/mutt/certificates/outlook.office365.com.pem
-AuthMech PLAIN
+AuthMechs PLAIN
 
 # Remote storage
-IMAPStore mailbox-exchange-remote
-Account mailbox-exchange
+IMAPStore exchange-remote
+Account exchange
 
 # Local storage
-MaildirStore mailbox-exchange-local
+MaildirStore exchange-local
 Path ~/mail/tolu@adesegha.ca
 Inbox ~/mail/tolu@adesegha.ca/inbox
 Flatten .
 
-Channel mailbox-exchange
-Master :mailbox-exchange-remote:
-Slave :mailbox-exchange-local:
+Channel exchange
+Master :exchange-remote:
+Slave :exchange-local:
 Patterns *
 CopyArrivalDate yes
 Create Slave
