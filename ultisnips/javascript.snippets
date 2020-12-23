@@ -30,12 +30,16 @@ snippet c "constant variable"
 const ${1:name} = ${0:value};
 endsnippet
 
-snippet i "import"
+snippet id "import default"
 import ${1:functionName} from '${2:path}';
 endsnippet
 
+snippet i "import"
+import { ${1:functionName} } from '${2:path}';
+endsnippet
+
 snippet e "export"
-export ${0}
+export { ${0} };
 endsnippet
 
 
