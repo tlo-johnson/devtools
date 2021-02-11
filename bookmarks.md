@@ -1,3 +1,7 @@
 [dev airtable](https://airtable.com/tblKg9N1sCmAv9bye/viwRz4thkqAQ8c9tN?blocks=hide)
 [cm-joevs-gql](https://joevs-graphql-dot-heb-joevs-dev1.uc.r.appspot.com/)
+[cm-gql](https://cm-graphql-service-dot-heb-cm-dev1.uc.r.appspot.com/)
+[cm-gql-queries](https://hebecom.atlassian.net/wiki/spaces/CMMA/pages/1198916763/CM+GraphQL+Queries#Browse)
 [stoke-wireframe](https://xd.adobe.com/view/6ff5261d-9a23-4315-aaa8-4caaa39a6390-3aa6/)
+[figma-joevs](https://www.figma.com/file/1SMwfAg40kn9aWNTxwIH5T/Joe-V's?node-id=59%3A4529)
+[chicken stew recipe](https://lowcarbafrica.com/nigerian-chicken-stew/#ingredients-used)
