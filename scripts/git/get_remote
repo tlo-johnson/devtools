@@ -1,0 +1,11 @@
+for commit in $(git log --pretty=format:"%h"); do
+  remote=$(git branch -r --contains $commit)
+  if [[ $remote ]]; then break; fi
+done
+
+if [[ ! $commit ]]; then
+  echo "could not find a remote branch to match current branch"
+  return
+fi
+
+echo $remote | grep -oP "origin/[^(HEAD)]+" | cut -d " " -f 1
