@@ -20,7 +20,7 @@ has_linter=$(yarn run 2> /dev/null | grep -q '\- lint'; echo $?)
 if [[ $skip_lint != true ]] && [[ $has_linter == "0" ]]; then
   yarn lint
   if [[ $? != "0" ]] && [[ $skip_lint != true ]]; then
-    return
+    exit 1
   fi
 fi
 
