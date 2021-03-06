@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 function parse_args {
   while (( "$#" )); do
     if [[ $1 == '--skip-lint' ]]; then
@@ -36,16 +38,14 @@ function run_tests {
 
 function push_remote {
   dir=$(pwd)
-  if [[ dir =~ "central-market/joe-vs" ]]; then
-    remote_branch=$(get_remote)
-    if [[ $remote_branch ]]; then
-      git push origin ${remote_branch}
-    else
-      git push --track origin $(git branch --show-current)
-    fi
+  remote_branch=$(get_remote.sh)
+  if [[ $remote_branch ]]; then
+    remote_name=$(git remote)
+    branch_name=$(echo $remote_branch | sed "s/$remote_name\///")
+    git push origin HEAD:${remote_branch}
   else
-    echo "remote branch detection not set up for directory: $dir"
-    exit 1
+    echo 'new branch needed'
+    git push --track origin $(git branch --show-current)
   fi
 }
 
@@ -55,7 +55,7 @@ function list_todos {
 
 parse_args "$@"
 set_default_msg
-rebase
+rebase.sh
 run_linter
 run_tests
 push_remote

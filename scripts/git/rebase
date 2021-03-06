@@ -1,2 +1,0 @@
-remote_branch=$(get_remote)
-git fetch origin && git rebase $remote_branch

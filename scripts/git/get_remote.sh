@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 curr_branch_name=$(git branch --show-current)
 remote=$(git branch --remote --list "*$curr_branch_name")
 if [[ $remote ]]; then
