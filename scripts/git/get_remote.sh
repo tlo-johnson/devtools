@@ -1,5 +1,5 @@
-curr_branch_name=$(git branch | grep '*' | cut -d '*' -f 2)
-remote=$(git branch -r | grep $curr_branch_name)
+curr_branch_name=$(git branch --show-current)
+remote=$(git branch --remote --list "*$curr_branch_name")
 if [[ $remote ]]; then
   echo $remote
   exit 0
