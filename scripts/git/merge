@@ -38,11 +38,11 @@ function run_tests {
 
 function push_remote {
   dir=$(pwd)
-  remote_branch=$(get_remote.sh)
+  remote_branch=$(get_remote)
   if [[ $remote_branch ]]; then
     remote_name=$(git remote)
     branch_name=$(echo $remote_branch | sed "s/$remote_name\///")
-    git push origin HEAD:${remote_branch}
+    git push origin HEAD:${branch_name}
   else
     echo 'new branch needed'
     git push --track origin $(git branch --show-current)
@@ -55,7 +55,7 @@ function list_todos {
 
 parse_args "$@"
 set_default_msg
-rebase.sh
+rebase
 run_linter
 run_tests
 push_remote
