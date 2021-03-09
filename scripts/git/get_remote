@@ -1,8 +1,14 @@
 #! /usr/bin/bash
 
 curr_branch_name=$(git branch --show-current)
+
+if [[ $(pwd) =~ "central-market" ]]; then
+  echo $curr_branch_name
+  exit 0
+fi
+
 remote=$(git branch --remote --list "*$curr_branch_name")
-if [[ $remote ]]; then
+if [[ $remote]]; then
   echo $remote
   exit 0
 fi

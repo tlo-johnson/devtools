@@ -4,18 +4,9 @@ function parse_args {
   while (( "$#" )); do
     if [[ $1 == '--skip-lint' ]]; then
       skip_lint=true
-    else
-      msg=$1
     fi
     shift
   done
-}
-
-function set_default_msg {
-  if [[ ! $msg ]]; then
-    msg=$(git log -n 1 --oneline | cut -d " " -f 2-)
-    echo "using last commit message: $msg"
-  fi
 }
 
 function run_linter {
@@ -44,8 +35,7 @@ function push_remote {
     branch_name=$(echo $remote_branch | sed "s/$remote_name\///")
     git push origin HEAD:${branch_name}
   else
-    echo 'new branch needed'
-    git push --track origin $(git branch --show-current)
+    git push origin $(git branch --show-current)
   fi
 }
 
@@ -54,7 +44,6 @@ function list_todos {
 }
 
 parse_args "$@"
-set_default_msg
 rebase
 run_linter
 run_tests

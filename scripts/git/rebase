@@ -1,4 +1,9 @@
 #! /usr/bin/bash
 
-remote_branch=$(get_remote)
+if [[ $# = 0 ]]; then 
+  remote_branch=$(get_remote)
+else
+  remote_branch=$1
+fi
+
 git fetch origin && git rebase $remote_branch
