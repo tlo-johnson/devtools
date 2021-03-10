@@ -1,3 +1,6 @@
+command! CmTodo edit ~/notes/cm/todo.md
+
+" cm.com
 function! s:Cm()
   cd ~/dev/central-market/react-service
 endfunction
