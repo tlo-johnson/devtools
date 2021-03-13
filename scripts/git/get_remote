@@ -8,7 +8,7 @@ if [[ $(pwd) =~ "central-market" ]]; then
 fi
 
 remote=$(git branch --remote --list "*$curr_branch_name")
-if [[ $remote]]; then
+if [[ $remote ]]; then
   echo $remote
   exit 0
 fi
