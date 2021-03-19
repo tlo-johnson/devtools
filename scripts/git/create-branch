@@ -5,6 +5,6 @@ fi
 
 branch_name=$1
 
-git fetch origin
+git fetch --prune origin
 git checkout origin/develop
 git switch -c $branch_name

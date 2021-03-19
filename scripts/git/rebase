@@ -6,4 +6,4 @@ else
   remote_branch=$1
 fi
 
-git fetch origin && git rebase $remote_branch
+git fetch --prune origin && git rebase $remote_branch
