@@ -6,7 +6,6 @@ function parse_args {
       skip_lint=true
     fi
     shift
-    echo 'parsing args'
   done
 }
 
