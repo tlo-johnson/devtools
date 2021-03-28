@@ -1,3 +1,5 @@
+command! StokeTodo edit ~/notes/stoke/todo.md
+
 function! s:StokeApi()
   cd ~/dev/stoke/api
 endfunction
