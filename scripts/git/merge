@@ -20,10 +20,7 @@ function run_linter {
 }
 
 function run_tests {
-  timedatectl set-timezone 'Africa/Lagos' && \
-    yarn test && \
-    timedatectl set-timezone 'America/Edmonton' && \
-    return
+  yarn test && return
   exit 1
 }
 
