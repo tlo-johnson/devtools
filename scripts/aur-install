@@ -1,0 +1,13 @@
+#! /bin/bash
+
+url=$1
+
+package_directory=${url##*/}
+package_directory=${package_directory%.git}
+
+pushd ~/aur && \
+  git clone $url && \
+  cd $package_directory && \
+  makepkg -sci
+
+popd
