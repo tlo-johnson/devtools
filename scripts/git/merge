@@ -41,10 +41,8 @@ function list_todos {
 }
 
 parse_args "$@"
-rebase
+rebase $( [[ $(pwd) =~ "central-market/joe-vs" ]] && echo origin/develop )
 run_linter
 run_tests
 push_remote
 list_todos
-
-echo https://gitlab.com/heb-engineering/teams/central-market-engineering/web-team/jv-ecomm-web/-/merge_requests
