@@ -9,7 +9,6 @@ function pomo {
     RED='\033[0;31m'
     NC='\033[0m' # No Color
     ORANGE='\033[0;33m'
-    printf "${ORANGE}POMODORO in YA TERMINAL${NC}\n"
 
     if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
         echo "usage: pomo       25 minute cycle"
@@ -70,7 +69,7 @@ function pomo {
         MESSAGE="It''s time to take a break"
     fi
 
-    echo -e "${ORANGE}TIMER SET FOR $(($TIMER/60)) MINUTES"
+    echo -e "${ORANGE}Timer set for $(($TIMER/60)) minutes"
 
     # LINUX users
     if [[ "$(uname)" == "Linux" ]]; then
