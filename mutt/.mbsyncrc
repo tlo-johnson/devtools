@@ -21,11 +21,11 @@ Inbox ~/mail/gmail/inbox
 Flatten .
 
 Channel gmail
-Master :gmail-remote:
-Slave :gmail-local:
+Far :gmail-remote:
+Near :gmail-local:
 Patterns *
 CopyArrivalDate yes
-Create Slave
+Create Near
 
 
 #######################################
@@ -52,8 +52,8 @@ Inbox ~/mail/outlook/inbox
 Flatten .
 
 Channel exchange
-Master :exchange-remote:
-Slave :exchange-local:
+Far :exchange-remote:
+Near :exchange-local:
 Patterns *
 CopyArrivalDate yes
-Create Slave
+Create Near
