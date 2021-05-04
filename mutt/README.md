@@ -2,16 +2,18 @@
 Based off of [a-modern-mutt-setup](https://webgefrickel.de/blog/a-modern-mutt-setup) and [a-modern-mutt-setup-part-two](https://webgefrickel.de/blog/a-modern-mutt-setup-part-two).
 
 ## Deviations:
-I'm using gpg to secure credentials. See [password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) on the msmtp page.
+You can use `pass` to secure credentials.
+
+Alternatively, you can use gpg to secure credentials. See [password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) on the msmtp page.
 #### TLDR
 - `gpg --default-recipient-self -e <name of file containing password>`
 - Copy `<name of file containing password>.gpg` to credentials location (see [One-time setup](https://github.com/tlo-johnson/devtools/tree/master/mutt#one-time-setup))
 - Be sure to delete the file containing your plaintext password. I'm sure there's a way to do this without actually saving the file - just need to do some exploration at some later date.
 
 ## Required tooling
-- mbsync `brew install isync`. The package is called isync but the binary is called mbsync
-- msmtp `brew install msmtp`
-- mutt `brew install mutt`
+- mbsync: `brew install isync`. The package is called isync but the binary is called mbsync
+- msmtp: `brew install msmtp`
+- mutt: `brew install mutt`
 
 ## One-time setup
 Besides installing the required tooling, a credentials file is required. This file is configured as part of the PassCmd setting in `.mbsyncrc` and as part of the passwordeval setting in `.msmtprc`. At the time of this writing, that location is set to `.credentials/gmail-credentials.gpg`. Instructions from [gpg password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) were used to generate the gpg file during setup of this project.
@@ -29,6 +31,8 @@ Create the expected directory structure for mutt - errors are thrown if mutt doe
 - `$HOME/.mutt/cache/bodies`
 - `$HOME/.mutt/mailcap`
 - `$HOME/.mutt/tmp`
+
+You'll need to create directories for each account. E.g. `$HOME/mail/toluwani.adesegha@gmail.com`
 
 ## Usage
 The following commands can be useful once running

@@ -1,13 +1,13 @@
 #######################################
-# toluwani.adesegha@gmail.com mailbox #
+# gmail mailbox #
 #######################################
 IMAPAccount gmail
 Host imap.gmail.com
 Port 993
 User toluwani.adesegha@gmail.com
-PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/toluwani.adesegha@gmail.com.gpg"
+PassCmd "pass google | grep app-pswd | cut -d ' ' -f 2"
 SSLType IMAPS
-CertificateFile ~/devtools/mutt/certificates/imap.gmail.com.pem
+CertificateFile ~/tools/mutt/certificates/imap.gmail.com.pem
 AuthMech PLAIN
 
 # Remote storage
@@ -16,8 +16,8 @@ Account gmail
 
 # Local storage
 MaildirStore gmail-local
-Path ~/mail/toluwani.adesegha@gmail.com/
-Inbox ~/mail/toluwani.adesegha@gmail.com/inbox
+Path ~/mail/gmail/
+Inbox ~/mail/gmail/inbox
 Flatten .
 
 Channel gmail
@@ -29,16 +29,16 @@ Create Slave
 
 
 #######################################
-# tolu@adesegha.ca mailbox #
+# outlook mailbox #
 #######################################
 IMAPAccount exchange
 Host outlook.office365.com
 Port 993
 User tolu@adesegha.ca
-PassCmd "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/devtools/mutt/.credentials/tolu@adesegha.ca.gpg"
+PassCmd "pass microsoft | grep app-pswd | cut -d ' ' -f 2"
 SSLType IMAPS
 SSLVersion TLSv1.2
-CertificateFile ~/devtools/mutt/certificates/outlook.office365.com.pem
+CertificateFile ~/tools/mutt/certificates/outlook.office365.com.pem
 AuthMechs PLAIN
 
 # Remote storage
@@ -47,8 +47,8 @@ Account exchange
 
 # Local storage
 MaildirStore exchange-local
-Path ~/mail/tolu@adesegha.ca
-Inbox ~/mail/tolu@adesegha.ca/inbox
+Path ~/mail/outlook
+Inbox ~/mail/outlook/inbox
 Flatten .
 
 Channel exchange

@@ -73,7 +73,7 @@ set query_command = "( khard email --parsable '%s' | sed -n '1!p'; mu cfind --fo
 
 # source colors and keybindings
 # keeping those in one place makes it easier for my brain
-source ~/devtools/mutt/colors
-source ~/devtools/mutt/bindings
+source ~/tools/mutt/colors
+source ~/tools/mutt/bindings
 
 set spoolfile = "+toluwani.adesegha@gmail.com/inbox"
