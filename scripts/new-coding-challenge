@@ -1,0 +1,3 @@
+mkdir "/home/tlo/dev/fundamentals/hackerrank/c/$1" && \
+  cd "/home/tlo/dev/fundamentals/hackerrank/c/$1" && \
+  mv ~/Downloads/$1* .
