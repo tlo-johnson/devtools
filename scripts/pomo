@@ -1,0 +1,96 @@
+#!/bin/bash
+
+red='\033[0;31m'
+nc='\033[0m' # No Color
+orange='\033[0;33m'
+
+work_duration_in_seconds=$((60*60)) # 60 minutes
+short_break_duration_in_seconds=$((10*60)) # 10 minutes
+long_break_duration_in_seconds=$((30*60)) # 30 minutes
+
+title="Pomodoro Timer"
+message=""
+icon="face-cool"
+timer=$work_duration_in_seconds
+
+start_session() {
+  dunstify "$title" "Started"
+  sleep 2 && send_notification &
+}
+
+send_notification() {
+  action=$(dunstify --action="default,stop" --urgency critical --icon=$icon "$title" "$message")
+  case $action in
+    "default")
+      dunstify "$title" "Stopped"
+      ;;
+
+    *)
+      start_session
+      ;;
+  esac
+}
+
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+  echo "usage: pomo       25 minute cycle"
+  echo -e "   or: pomo [break]['_message_']  see options below\n"
+  echo "Options:"
+  echo "  d: timer duration in minutes"
+  echo "  s: $(($short_break_duration_in_seconds / 60)) minute break"
+  echo "  l: $(($long_break_duration_in_seconds / 60)) minute break"
+  echo "  message: Your message to display"
+  return
+fi
+
+if [[ "$1" == "-v" ]] || [[ "$1" == "--version" ]]; then
+  echo -e "${orange}Pomodoro timer by Rukshan"
+  echo "  v: 1.0.0.1"
+  echo "  twitter: @justruky"
+  echo "  blog: rukshn.github.io"
+  echo -e "  email: arkruka[@]gmail.com"
+  return
+fi
+
+while :
+do
+  case "$1" in
+    -d | --duration)
+      timer=$(($2*60))
+      shift 2
+      ;;
+    -l | --long-break)
+      message="Long is break over, back to work"
+      timer=$long_break_duration_in_seconds
+      shift
+      ;;
+    -s | --short-break)
+      message="Short is break over, back to work"
+      timer=$short_break_duration_in_seconds
+      shift
+      ;;
+    -*)
+      echo "Error: Unknown option: $1" >&2
+      return 1
+      ;;
+    *)  # No more options
+      break
+      ;;
+  esac
+done
+
+if [ -n "$1" ]; then
+  message="$1"
+elif [ -z "$message" ]; then
+  message="It's time to take a break"
+fi
+
+# LINUX users
+if [[ "$(uname)" == "Linux" ]]; then
+  start_session
+# MAC users
+elif [[ "$(uname)" == "Darwin" ]]; then
+  sleep $timer && terminal-notifier -message '$message' -title 'Pomodoro' --subtitle '$title' &
+  disown
+else
+  echo "Sorry! Only Linux or Mac";
+fi
