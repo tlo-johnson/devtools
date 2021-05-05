@@ -31,7 +31,7 @@ Create Near
 #######################################
 # outlook mailbox #
 #######################################
-IMAPAccount exchange
+IMAPAccount outlook
 Host outlook.office365.com
 Port 993
 User tolu@adesegha.ca
@@ -42,18 +42,18 @@ CertificateFile ~/tools/mutt/certificates/outlook.office365.com.pem
 AuthMechs PLAIN
 
 # Remote storage
-IMAPStore exchange-remote
-Account exchange
+IMAPStore outlook-remote
+Account outlook
 
 # Local storage
-MaildirStore exchange-local
-Path ~/mail/outlook
+MaildirStore outlook-local
+Path ~/mail/outlook/
 Inbox ~/mail/outlook/inbox
 Flatten .
 
-Channel exchange
-Far :exchange-remote:
-Near :exchange-local:
+Channel outlook
+Far :outlook-remote:
+Near :outlook-local:
 Patterns *
 CopyArrivalDate yes
 Create Near

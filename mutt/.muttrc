@@ -76,4 +76,4 @@ set query_command = "( khard email --parsable '%s' | sed -n '1!p'; mu cfind --fo
 source ~/tools/mutt/colors
 source ~/tools/mutt/bindings
 
-set spoolfile = "+toluwani.adesegha@gmail.com/inbox"
+set spoolfile = "+gmail/inbox"
