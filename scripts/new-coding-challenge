@@ -1,9 +1,9 @@
 rootDir=/home/tlo/dev/fundamentals/hackerrank/c
 
-if [ $# > 1 ]; then
+if [ $# > 2 ]; then
   mv "$rootDir/$2" "$rootDir/solved/$2" && \
     git add -A && \
-    git commit -m "solve $2"
+    git commit -m "solve ${2//-/}"
 fi
 
 mkdir "$rootDir/$1" && \

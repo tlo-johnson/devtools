@@ -15,7 +15,7 @@ timer=$work_duration_in_seconds
 
 start_session() {
   dunstify "$title" "Started"
-  sleep 2 && send_notification &
+  sleep $timer && send_notification &
 }
 
 send_notification() {
