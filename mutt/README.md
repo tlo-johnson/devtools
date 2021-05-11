@@ -14,6 +14,7 @@ Alternatively, you can use gpg to secure credentials. See [password management](
 - mbsync: `brew install isync`. The package is called isync but the binary is called mbsync
 - msmtp: `brew install msmtp`
 - mutt: `brew install mutt`
+- pdftotext: `pacman -S poppler-utils`
 
 ## One-time setup
 Besides installing the required tooling, a credentials file is required. This file is configured as part of the PassCmd setting in `.mbsyncrc` and as part of the passwordeval setting in `.msmtprc`. At the time of this writing, that location is set to `.credentials/gmail-credentials.gpg`. Instructions from [gpg password management](https://wiki.archlinux.org/index.php/msmtp#Password_management) were used to generate the gpg file during setup of this project.

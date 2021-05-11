@@ -1,1 +1,2 @@
 text/html; elinks -dump ; copiousoutput;
+application/pdf; pdftotext -layout %s -; copiousoutput;
