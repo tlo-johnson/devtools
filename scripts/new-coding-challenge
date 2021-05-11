@@ -2,11 +2,10 @@ rootDir=/home/tlo/dev/fundamentals/hackerrank/c
 
 cd $rootDir
 
-if [ $# > 2 ]; then
+[ ! -z "$2" ] && \
   mv "$rootDir/$2" "$rootDir/solved/$2" && \
-    git add -A && \
-    git commit -m "solve ${2//-/ }"
-fi
+  git add -A && \
+  git commit -m "solve ${2//-/ }"
 
 mkdir "$rootDir/$1" && \
   mv ~/Downloads/$1* "$rootDir/$1/problem-statement.pdf"
