@@ -20,19 +20,21 @@ Besides installing the required tooling, a credentials file is required. This fi
 
 Note: The rest of the one-time setup required has been scripted in `./one-time-setup.sh`. Run that file if you feel like an automated setup.
 
+Create the expected directory structure for mutt - errors are thrown if mutt does not find the directory structure it expects.
+- `$HOME/mail`
+- `$HOME/.mutt/cache/headers`
+- `$HOME/.mutt/cache/bodies`
+- `$HOME/.mutt/tmp`
+
 Symlinks from $HOME need to be set up for the files listed below.
 - `./.mbsyncrc`
 - `./.msmtprc`
 - `./.muttrc`
 
-Create the expected directory structure for mutt - errors are thrown if mutt does not find the directory structure it expects.
-- `$HOME/mail`
-- `$HOME/.mutt/cache/headers`
-- `$HOME/.mutt/cache/bodies`
-- `$HOME/.mutt/mailcap`
-- `$HOME/.mutt/tmp`
+Symlink from $HOME/.mutt needs to be set up for the files listed below.
+- `./mailcap`
 
-You'll need to create directories for each account. E.g. `$HOME/mail/toluwani.adesegha@gmail.com`
+You'll need to create mail directories for each account (e.g. `$HOME/mail/outlook`)
 
 ## Usage
 The following commands can be useful once running

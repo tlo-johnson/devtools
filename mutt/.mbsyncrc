@@ -54,6 +54,7 @@ Channel outlook
 Far :outlook-remote:
 Near :outlook-local:
 Patterns *
+CopyArrivalDate yes
 Create Both
 Expunge Both
 Sync All
