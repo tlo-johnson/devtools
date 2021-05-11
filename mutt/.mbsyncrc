@@ -33,7 +33,6 @@ Create Near
 #######################################
 IMAPAccount outlook
 Host outlook.office365.com
-Port 993
 User tolu@adesegha.ca
 PassCmd "pass microsoft | grep app-pswd | cut -d ' ' -f 2"
 SSLType IMAPS
@@ -54,6 +53,38 @@ Flatten .
 Channel outlook
 Far :outlook-remote:
 Near :outlook-local:
+Patterns *
+Create Both
+Expunge Both
+Sync All
+SyncState *
+
+
+#######################################
+# stoke mailbox #
+#######################################
+IMAPAccount stoke
+Host imap.gmail.com
+Port 993
+User tolu.a@stokeip.com
+PassCmd "pass stoke/google"
+SSLType IMAPS
+CertificateFile ~/tools/mutt/certificates/imap.gmail.com.pem
+AuthMech PLAIN
+
+# Remote storage
+IMAPStore stoke-remote
+Account stoke
+
+# Local storage
+MaildirStore stoke-local
+Path ~/mail/stoke/
+Inbox ~/mail/stoke/inbox
+Flatten .
+
+Channel stoke
+Far :stoke-remote:
+Near :stoke-local:
 Patterns *
 CopyArrivalDate yes
 Create Near
