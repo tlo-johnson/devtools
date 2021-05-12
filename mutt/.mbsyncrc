@@ -89,3 +89,33 @@ Near :stoke-local:
 Patterns *
 CopyArrivalDate yes
 Create Near
+
+
+#######################################
+# xerris mailbox #
+#######################################
+IMAPAccount xerris
+Host imap.gmail.com
+Port 993
+User tolu_adesegha@xerris.com
+PassCmd "pass xerris/google | grep app-pswd | cut -d ' ' -f 2"
+SSLType IMAPS
+CertificateFile ~/tools/mutt/certificates/imap.gmail.com.pem
+AuthMech PLAIN
+
+# Remote storage
+IMAPStore xerris-remote
+Account xerris
+
+# Local storage
+MaildirStore xerris-local
+Path ~/mail/xerris/
+Inbox ~/mail/xerris/inbox
+Flatten .
+
+Channel xerris
+Far :xerris-remote:
+Near :xerris-local:
+Patterns *
+CopyArrivalDate yes
+Create Near
