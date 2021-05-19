@@ -14,6 +14,8 @@ icon="face-cool"
 timer=$work_duration_in_seconds
 
 start_session() {
+  is_running=$( ps ax | grep -c sleep )
+  [ $is_running -gt 1 ] && kill $( ps ax | grep sleep | xargs | cut -d ' ' -f 1 )
   dunstify "$title" "Started"
   sleep $timer && send_notification &
 }
