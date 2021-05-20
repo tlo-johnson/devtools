@@ -77,3 +77,7 @@ source ~/tools/mutt/colors
 source ~/tools/mutt/bindings
 
 set spoolfile = "+gmail/inbox"
+
+# urlscan
+macro index,pager gx "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose gx "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"

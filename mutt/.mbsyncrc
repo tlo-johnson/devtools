@@ -29,6 +29,36 @@ Create Near
 
 
 #######################################
+# gmail(corp) mailbox #
+#######################################
+IMAPAccount gmail-corp
+Host imap.gmail.com
+Port 993
+User tadesegha.corp@gmail.com
+PassCmd "pass google-corp | grep app-pswd | cut -d ' ' -f 2"
+SSLType IMAPS
+CertificateFile ~/tools/mutt/certificates/imap.gmail.com.pem
+AuthMech PLAIN
+
+# Remote storage
+IMAPStore gmail-corp-remote
+Account gmail-corp
+
+# Local storage
+MaildirStore gmail-corp-local
+Path ~/mail/gmail-corp/
+Inbox ~/mail/gmail-corp/inbox
+Flatten .
+
+Channel gmail-corp
+Far :gmail-corp-remote:
+Near :gmail-corp-local:
+Patterns *
+CopyArrivalDate yes
+Create Near
+
+
+#######################################
 # outlook mailbox #
 #######################################
 IMAPAccount outlook
