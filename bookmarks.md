@@ -7,6 +7,7 @@
 [cm-swagger-docs](http//cm-openapi-dot-heb-cm-dev1.uc.r.appspot.com/swagger-ui.html?urls.primaryName=cm-shopping#)
 
 [stoke-wireframe](https://xd.adobe.com/view/6ff5261d-9a23-4315-aaa8-4caaa39a6390-3aa6/)
+[stoke-aws](https://782056890106.signin.aws.amazon.com/console)
 
 [chicken stew recipe](https://lowcarbafrica.com/nigerian-chicken-stew/#ingredients-used)
 [ulo-dev](https://develop.dbmw09yicdyu9.amplifyapp.com/)
