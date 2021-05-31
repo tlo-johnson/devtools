@@ -1,7 +1,9 @@
+command! UloTodo edit ~/notes/ulo/todo.md
+
 function! s:UloServer()
   cd ~/dev/ulo/server
-  call RunInTerminal('mongodb-client', 'yarn db:docker')
-  call RunInTerminal('node-dev', 'yarn start')
+  call RunInTerminal('mongodb-server', 'yarn db:docker')
+  call RunInTerminal('dev-server', 'yarn dev')
 endfunction
 
 function! s:UloClient()
