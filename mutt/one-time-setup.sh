@@ -10,3 +10,7 @@ ln -s $currDir/.mbsyncrc $HOME/.mbsyncrc
 ln -s $currDir/.msmtprc $HOME/.msmtprc
 ln -s $currDir/.muttrc $HOME/.muttrc
 ln -s $currDir/mailcap $HOME/.mutt/mailcap
+
+ln -s $currDir/.muttrc-outlook $HOME/.mutt
+ln -s $currDir/.muttrc-gmail $HOME/.mutt
+ln -s $currDir/.muttrc-stoke $HOME/.mutt

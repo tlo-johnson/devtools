@@ -1,0 +1,7 @@
+# smtp
+set smtp_url =  "smtp://tolu.a@stokeip.com@smtp.gmail.com:587/"
+set smtp_pass = `pass stoke/google`
+set ssl_force_tls = yes
+
+set from = "tolu.a@stokeip.com"
+set realname = "Tolu A"

@@ -1,0 +1,7 @@
+# smtp
+set smtp_url =  "smtp://toluwani.adesegha@smtp.gmail.com:587/"
+set smtp_pass = `pass google | grep app-pswd | cut -d ' ' -f 2`
+set ssl_force_tls = yes
+
+set from = "toluwani.adesegha@gmail.com"
+set realname = "Tolu A"

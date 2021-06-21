@@ -1,0 +1,7 @@
+# smtp
+set smtp_url =  "smtp://tolu@adesegha.ca@smtp-mail.outlook.com:587/"
+set smtp_pass = `pass microsoft | grep app-pswd | cut -d ' ' -f 2`
+set ssl_force_tls = yes
+
+set from = "tolu@adesegha.ca"
+set realname = "Tolu A"

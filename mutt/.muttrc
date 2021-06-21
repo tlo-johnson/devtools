@@ -81,3 +81,10 @@ set spoolfile = "+gmail/inbox"
 # urlscan
 macro index,pager gx "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose gx "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+# folder hooks
+folder-hook 'gmail' 'source .mutt/.muttrc-gmail'
+folder-hook 'outlook' 'source .mutt/.muttrc-outlook'
+folder-hook 'stoke' 'source .mutt/.muttrc-stoke'
+
+source .mutt/.muttrc-outlook
