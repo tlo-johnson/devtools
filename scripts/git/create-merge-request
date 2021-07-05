@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
-if [ ! $# -eq 3 ]; then
-  echo "usage: create-merge-request <source_branch> <target_branch> <title>"
+if [ ! $# -ge 1 ]; then
+  echo "usage: create-merge-request <title> [source_branch] [target_branch]"
   exit 1
 fi
 
@@ -9,9 +9,17 @@ url=https://gitlab.com/api/v4
 project_id=21641725 # this could also be the url-encoded path of the project
 token=$( pass cm/onepass | grep 'gitlab-access-token' | cut -d ' ' -f 2 )
 
-source_branch=$1
-target_branch=$2
-title=$3
+title=$1
+source_branch=$2
+target_branch=$3
 
-data="{ \"id\": \"$project_id\", \"source_branch\": \"$source_branch\", \"target_branch\": \"$target_branch\", \"title\": \"$title\" }"
-curl --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data "$data" "$url/projects/$project_id/merge_requests" | jq .web_url
+[ -z "$source_branch" ] && source_branch=$( get_remote )
+[ -z "$target_branch" ] && target_branch=develop
+[[ "$@" =~ "--skip-lint" ]] && skip_lint="--skip-lint"
+
+merge $skip_lint
+
+data="{ \"id\": \"$project_id\", \"source_branch\": \"$source_branch\", \"target_branch\": \"$target_branch\", \"title\": \"$title\", \"remove_source_branch\": true }"
+url=$( curl --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data "$data" "$url/projects/$project_id/merge_requests" | jq --raw-output .web_url )
+echo "$url" | xclip -sel c
+echo "merge request created: $url"
