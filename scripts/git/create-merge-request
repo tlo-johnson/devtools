@@ -14,7 +14,7 @@ source_branch=$2
 target_branch=$3
 
 [ -z "$source_branch" ] && source_branch=$( get_remote )
-[ -z "$target_branch" ] && target_branch=develop
+[ -z "$target_branch" ] && target_branch=$( git branch -r --list origin/HEAD | cut -d '/' -f 3 )
 [[ "$@" =~ "--skip-lint" ]] && skip_lint="--skip-lint"
 
 merge $skip_lint

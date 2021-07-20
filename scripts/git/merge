@@ -41,7 +41,7 @@ function list_todos {
 }
 
 parse_args "$@"
-rebase $( [[ $(pwd) =~ "central-market/joe-vs" ]] && echo origin/develop )
+rebase
 run_linter
 run_tests
 push_remote

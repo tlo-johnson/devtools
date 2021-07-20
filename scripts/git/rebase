@@ -1,9 +1,3 @@
 #! /usr/bin/bash
 
-if [[ $# = 0 ]]; then 
-  remote_branch=$(get_remote)
-else
-  remote_branch=$1
-fi
-
-git fetch --prune origin && git rebase $remote_branch
+git fetch --prune origin && git rebase origin/HEAD

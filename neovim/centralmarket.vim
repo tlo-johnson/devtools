@@ -40,3 +40,8 @@ command! CmTest call RunInTerminal('jest-tests', 'yarn jest:watch')
 " Joe V's
 command! Jv cd ~/dev/central-market/joe-vs
 command! JvDev call RunInTerminal('dev-server', 'cd ~/dev/central-market/joe-vs && sudo yarn dev:joevs') | call RunInTerminal('redis-server', 'cd ~/dev/central-market/joe-vs && yarn dev:redis')
+
+
+" Cooking School
+command! Cs cd ~/dev/central-market/cooking-school
+command! CsDev call RunInTerminal('dev-server', 'cd ~/dev/central-market/cooking-school && nvm use 15 && yarn dev')
