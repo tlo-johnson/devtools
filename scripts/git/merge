@@ -41,6 +41,7 @@ function list_todos {
 }
 
 parse_args "$@"
+pwd | grep cooking-school && nvm use 15
 rebase
 run_linter
 run_tests

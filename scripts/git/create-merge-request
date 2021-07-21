@@ -6,7 +6,9 @@ if [ ! $# -ge 1 ]; then
 fi
 
 url=https://gitlab.com/api/v4
-project_id=21641725 # this could also be the url-encoded path of the project
+cm_project_id=23366681
+jv_project_id=21641725
+project_id=$( pwd | grep 'cooking-school' > /dev/null && echo $cm_project_id || echo $jv_project_id ) # this could also be the url-encoded path of the project
 token=$( pass cm/onepass | grep 'gitlab-access-token' | cut -d ' ' -f 2 )
 
 title=$1
